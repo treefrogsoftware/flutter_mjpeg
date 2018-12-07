@@ -13,8 +13,8 @@ class Mjpeg {
   static const MethodChannel _channel =
       const MethodChannel('mjpeg');
 
-  static Future<Null> startLiveView({String url}) async {
-    await _channel.invokeMethod('liveView', {'url': url});
+  static Future<Null> startLiveView({String url, String cookie}) async {
+    await _channel.invokeMethod('liveView', {'url': url, 'cookie': cookie});
   }
 
   static Future<File> pickVideo2({

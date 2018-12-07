@@ -38,10 +38,13 @@ static const int SOURCE_GALLERY = 1;
   if ([@"liveView" isEqualToString:call.method]) {
       
       NSString *url = call.arguments[@"url"];
+      NSString *cookie = call.arguments[@"cookie"];
+
             
       self.root = [UIApplication sharedApplication].keyWindow.rootViewController;
       self.vc = [[LiveViewController alloc] init];
       self.vc.url = url;
+      self.vc.cookie = cookie;
       self.nav = [[UINavigationController alloc] initWithRootViewController:self.vc];
       
       [self.root presentViewController:self.nav animated:true completion:nil];

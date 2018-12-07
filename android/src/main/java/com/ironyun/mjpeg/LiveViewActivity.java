@@ -12,6 +12,8 @@ import com.github.niqdev.mjpeg.Mjpeg;
 import com.github.niqdev.mjpeg.MjpegInputStream;
 import com.github.niqdev.mjpeg.MjpegView;
 
+import org.json.JSONException;
+
 import rx.Subscriber;
 import rx.functions.Action1;
 
@@ -26,6 +28,7 @@ public class LiveViewActivity extends Activity {
         setTitle("Live view");
 
         String url = getIntent().getStringExtra("url");
+        String cookies = getIntent().getStringExtra("cookie");
 
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
@@ -33,8 +36,7 @@ public class LiveViewActivity extends Activity {
         setContentView(R.layout.mjpeg_layout);
         mjpegView = findViewById(R.id.mjpegViewDefault);
 
-
-        Mjpeg.newInstance().open(url).subscribe(new Subscriber<MjpegInputStream>() {
+        Mjpeg.newInstance().addCookie(cookies).open(url).subscribe(new Subscriber<MjpegInputStream>() {
             @Override
             public void onCompleted() {
                 Log.d("MJPG", "subscribe completed");

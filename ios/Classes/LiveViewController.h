@@ -11,6 +11,7 @@
     NSMutableData *_responseData;
 }
 @property (nonatomic) NSString *url;
+@property (nonatomic) NSString *cookie;
 @property (retain, nonatomic) UIImageView *imageView;
 
 @end

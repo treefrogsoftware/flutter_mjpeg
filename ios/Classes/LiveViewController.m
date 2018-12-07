@@ -35,9 +35,10 @@
     
     _responseData = [[NSMutableData alloc] init];
     
-    NSURLRequest *theRequest =
-    [NSURLRequest requestWithURL:[NSURL URLWithString:self.url]];
-    
+    NSMutableURLRequest *theRequest =
+    [NSMutableURLRequest requestWithURL:[NSURL URLWithString:self.url]];
+    [theRequest setValue:self.cookie forHTTPHeaderField:@"Cookie"];
+
     NSHTTPURLResponse *response = nil;
     NSError *error =nil;
 

@@ -30,9 +30,11 @@ public class MjpegPlugin implements MethodCallHandler {
       Log.d("MJPG", "onMethodCall " + call.method);
 
         String url = call.argument("url");
+        String cookie = call.argument("cookie");
 
         Intent intent = new Intent(activity, LiveViewActivity.class);
         intent.putExtra("url", url);
+        intent.putExtra("cookie", cookie);
 
         activity.startActivity(intent);
 
