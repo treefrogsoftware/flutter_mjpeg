@@ -20,5 +20,9 @@ and also this to the top-most ```<manifest>``` tag:
     xmlns:tools="http://schemas.android.com/tools"
 ```
 
+ipcam-view uses version 28 for the Android SDK.  With version 28 to avoid issues with URLs add the following to ```<application>``` tag of your ```AndroidManifest.xml```:
+```
+        android:usesCleartextTraffic="true"
+```
 
 
